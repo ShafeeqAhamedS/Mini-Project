@@ -281,16 +281,16 @@ scaled_values=scaler.fit_transform(X)
 X.loc[:,:]=scaled_values
 ```
 #### Before Normalization
-![norm](./befornorm)
+![norm](./befornorm.png)
 #### After Normalization
-![norm](./aftrnorm)
+![norm](./aftrnorm.png)
 ### Splitting Data 
 ```py
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.40, random_state=101)
 print("Training sample shape =",X_train.shape)
 print("Testing sample sample =",X_test.shape)
 ```
-![split](./split)
+![split](./split.png)
 ### Applying Logisitc Regression
 ```py
 reg = LogisticRegression()
@@ -305,12 +305,12 @@ sns.heatmap(confusion_matrix(y_test,log_predicted),annot=True,fmt="d")
 print('Classification Report: \n', classification_report(y_test,log_predicted))
 ```
 #### Accuray
-![acc](./acc)
+![acc](./acc.png)
 #### Confusion Matrix
-![conf](./conf)
-![conf](./conf1)
+![conf](./conf.png)
+![conf](./conf1.png)
 #### Classification Matrix
-![class](./report)
+![class](./report.png)
 
 ## Predicitng
 ```py
@@ -320,4 +320,4 @@ if(pred == 1):
 else:
   print("Not Infected with Liver Cirrohisis")
 ```
-![pred](./pred)
+![pred](./pred.png)
