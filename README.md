@@ -1,5 +1,11 @@
-# Mini-Project
-
+# Liver Cirrhosis Analysis & Prediction
+## About Liver Cirrhosis
+* Chronic liver damage from a variety of causes leading to scarring and liver failure.
+* Hepatitis and chronic alcohol abuse are frequent causes.
+* Liver damage caused by cirrhosis can't be undone, but further damage can be limited.
+* Initially patients may experience fatigue, weakness and weight loss.
+* During later stages, patients may develop jaundice (yellowing of the skin), gastrointestinal bleeding, abdominal swelling and confusion.
+## About the dataset
 * This data set contains 416 liver patient records and 167 non liver patient records collected from North East of Andhra Pradesh, India. 
 * The "Dataset" column is a class label used to divide groups into liver patient (liver disease) or not (no disease). 
 * This data set contains 441 male patient records and 142 female patient records.
@@ -51,7 +57,8 @@ df["Gender"] = le.fit_transform(df["Gender"])
 
 df
 ```
-
+### Dataset
+![image](https://user-images.githubusercontent.com/93427237/204739741-06eb1b1b-450e-4dbe-81a7-fe2bd542c4b5.png)
 ## Detecing & Removing Outliers
 
 ```py
@@ -108,6 +115,10 @@ plt.figure(figsize=(10,6))
 sns.heatmap(df.corr(),cmap='magma',annot=True)
 plt.show()
 ```
+### Before removing outliers
+<img width="493" alt="image" src="https://user-images.githubusercontent.com/93427237/204740023-a1607e51-2771-4838-8a50-e9f34f0d3407.png">
+### After removing outliers
+<img width="423" alt="image" src="https://user-images.githubusercontent.com/93427237/204740103-0128a899-a6df-49c8-9817-b6f3618c06ce.png">
 
 ## Correlation
 
@@ -119,6 +130,10 @@ plt.xlabel('Variables in the Data')
 plt.ylabel('Correlation Values')
 plt.show()
 ```
+### Heat Map
+![image](https://user-images.githubusercontent.com/93427237/204740272-87bb84fc-567b-4e0b-9d26-c0d1fc4355a5.png)
+### Correlation Bar Plot
+![image](https://user-images.githubusercontent.com/93427237/204740363-7091f51b-d917-450c-8741-948add1d2767.png)
 
 ## EDA
 
@@ -130,6 +145,7 @@ plt.show()
 ```py
 df['Dataset'].value_counts()
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740649-1f115c06-812a-4d30-818c-c89a4372de55.png)
 
 ```py
 asc = df["Age"].value_counts().sort_values(ascending=False).index
@@ -139,6 +155,8 @@ sns.countplot(data=df,x=df["Age"],hue = df["Dataset"],order=asc)
 plt.title('Count across Age',fontsize=16)
 plt.show()
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740619-4ceef042-da76-4dd3-a367-eccee3cb451a.png)
+
 
 ```py
 plt.figure(figsize=(9,6))
@@ -148,6 +166,8 @@ plt.title('Percentage difference in the count between Male and Female')
 plt.legend(label,title='Category')
 plt.show()
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740663-e7ce6c57-c8d9-4317-b19b-d06c0d9a8520.png)
+
 
 ```py
 plt.figure(figsize=(9,6))
@@ -155,20 +175,21 @@ df['Dataset'].value_counts().plot(kind='pie',autopct='%.2f%%',colors=['deepskybl
 plt.title('Percentage difference in the count between Healthy & Diseased')
 plt.show()
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740688-0b8072bb-a5b5-4737-a082-605060d79d2a.png)
+
 
 ```py
 sns.countplot(df['Dataset'],palette='Set2')
 plt.title('Count Across Disease')
 plt.show()
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740709-62ffdcbc-7965-4bfd-ac59-74f3c1510fa6.png)
+
 
 ```py
 sns.countplot(x="Dataset", hue="Gender", data=df)
 ```
-
-1. People starts to get the Liver Disease from the age of 25 to 50 
-2. There is chances because of the youngster consuming lot of junk food and Processed foods. 
-3. May be also there is possibilty No taking proper food at proper time
+![image](https://user-images.githubusercontent.com/93427237/204740752-d16ce280-73e5-4cd0-831d-7adcc42ed35c.png)
 
 ```py
 plt.style.use("seaborn")
@@ -177,6 +198,11 @@ plt.margins(x=0)
 plt.title('Histogram for Age with Disease')
 sns.histplot(x = df["Age"], hue = df["Dataset"], palette="winter_r", kde=True)
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740800-7fa859e0-090b-4fa9-99ff-63438a1c9092.png)
+
+1. People starts to get the Liver Disease from the age of 25 to 50 
+2. There is chances because of the youngster consuming lot of junk food and Processed foods. 
+3. May be also there is possibilty No taking proper food at proper time
 
 ## Relationship
 
@@ -188,6 +214,7 @@ g.map(plt.scatter,"Direct_Bilirubin", "Total_Bilirubin", edgecolor="w")
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Total_Bilirubin", "Direct_Bilirubin", data=df, kind="reg")
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740826-c3ae0cc5-edf9-48b2-95a5-c25b07414195.png)
 
 There seems to be direct relationship between Total_Bilirubin and Direct_Bilirubin.
 
@@ -199,6 +226,7 @@ g.map(plt.scatter,"Aspartate_Aminotransferase", "Alamine_Aminotransferase",  edg
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Aspartate_Aminotransferase", "Alamine_Aminotransferase", data=df, kind="reg")
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740882-6e6421d6-e13f-4972-b40e-39b9efb55daf.png)
 
 There is linear relationship between Aspartate_Aminotransferase and Alamine_Aminotransferase and the gender.
 
@@ -210,6 +238,7 @@ g.map(plt.scatter,"Alkaline_Phosphotase", "Alamine_Aminotransferase",  edgecolor
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Alkaline_Phosphotase", "Alamine_Aminotransferase", data=df, kind="reg")
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740899-7454340d-1a65-4690-8341-d3c690ddd0a2.png)
 
 No linear correlation between Alkaline_Phosphotase and Alamine_Aminotransferase
 
@@ -221,6 +250,7 @@ g.map(plt.scatter,"Total_Protiens", "Albumin",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Total_Protiens", "Albumin", data=df, kind="reg")
 ```
+![image](https://user-images.githubusercontent.com/93427237/204740858-450124f4-765a-4ebb-b3cf-d7ae3ecc8e72.png)
 
 There is linear relationship between Total_Protiens and Albumin and the gender.
 
@@ -232,6 +262,7 @@ g.map(plt.scatter,"Albumin", "Albumin_and_Globulin_Ratio",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Albumin_and_Globulin_Ratio", "Albumin", data=df, kind="reg")
 ```
+![image](https://user-images.githubusercontent.com/93427237/204741132-49bd143a-13ba-4c57-9d34-65ccec08e922.png)
 
 There is linear relationship between Albumin_and_Globulin_Ratio and Albumin.
 
@@ -244,42 +275,54 @@ From the above jointplots and scatterplots, we find direct relationship between 
 4. Albumin_and_Globulin_Ratio & Albumin
 
 ## Applying ML
-
+### Assinging X and Y
 ```py
 X = df.drop(['Dataset'], axis=1)
 y = df['Dataset']
-
-
+```
+### Normalization
+```py
 scaler=MinMaxScaler()
 scaled_values=scaler.fit_transform(X)
 X.loc[:,:]=scaled_values
+```
+#### Before Normalization
+![image](https://user-images.githubusercontent.com/93427237/204741149-26454367-3c8d-4cbe-a95d-0c219a12bb74.png)
 
+#### After Normalization
+![image](https://user-images.githubusercontent.com/93427237/204741285-3ab38cf3-867c-4233-afd2-c5b38da071e8.png)
+
+### Splitting Data 
+```py
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.40, random_state=101)
 print("Training sample shape =",X_train.shape)
 print("Testing sample sample =",X_test.shape)
-
+```
+### Applying Logisitc Regression
+```py
 reg = LogisticRegression()
 reg.fit(X_train, y_train)
 
 log_predicted= reg.predict(X_test)
-
+### Measuring accuracy
+```py
 print('Accuracy: \n', accuracy_score(y_test,log_predicted))
 print('Confusion Matrix: \n', confusion_matrix(y_test,log_predicted))
 sns.heatmap(confusion_matrix(y_test,log_predicted),annot=True,fmt="d")
 print('Classification Report: \n', classification_report(y_test,log_predicted))
-pred = reg.predict([[38,1,1.0,0.3,216,21,24,7.3,4.4,1.50]])
+```
+#### Accuray
+![Uploading image.png…]()
+#### Confusion Matrix
+
+#### Classification Matrix
+
+
+## Predicitng
+```py
+pred = reg.predict([[22,0,50,10.5,100,120,50,5.0,2.5,1.2]])
 if(pred == 1):
   print("Infected with Liver Cirrohisis")
 else:
   print("Not Infected with Liver Cirrohisis")
 ```
-
-* It is normal to have some bilirubin in the blood. A normal level is: 
-    * **Direct bilirubin**: less than 0.3 mg/dL
-    * **Total bilirubin**: 0.1 to 1.2 mg/dL
-* **Alkaline_Phosphotase** - The normal range is 44 to 147 international units7 per liter
-* **Alamine_Aminotransferase** - The normal range is 4 to 36 U/L
-* **Aspartate_Aminotransferase** - The normal range is 8 to 33 U/L.
-* **Total_Protiens** - The normal range is 6.0 to 8.3 grams per deciliter (g/dL)
-* **Albumin** - The normal range is 3.4 to 5.4 g/dL
-* **Albumin_and_Globulin_Ratio** - The normal range for albumin/globulin ratio is over 1 , usually around 1 to 2. 
