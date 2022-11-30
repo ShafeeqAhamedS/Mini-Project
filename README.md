@@ -11,9 +11,7 @@
 * This data set contains 441 male patient records and 142 female patient records.
 
 * Any patient whose age exceeded 89 is listed as being of age "90".
-
-# Code:
-
+## Program
 ## Importing Modules
 
 ```py
@@ -107,7 +105,11 @@ df['Albumin_and_Globulin_Ratio']=df['Albumin_and_Globulin_Ratio'].apply(lambda x
 df.drop('Dataset',axis=1).plot(kind='box',layout=(2,5),subplots=True,figsize=(12,6))
 plt.show()
 ```
-
+### Before removing outliers
+<img width="493" alt="image" src="https://user-images.githubusercontent.com/93427237/204740023-a1607e51-2771-4838-8a50-e9f34f0d3407.png">
+</br>
+### After removing outliers
+<img width="493" alt="image" src="https://user-images.githubusercontent.com/93427237/204740103-0128a899-a6df-49c8-9817-b6f3618c06ce.png">
 ## Heatmap
 
 ```py
@@ -115,10 +117,7 @@ plt.figure(figsize=(10,6))
 sns.heatmap(df.corr(),cmap='magma',annot=True)
 plt.show()
 ```
-### Before removing outliers
-<img width="493" alt="image" src="https://user-images.githubusercontent.com/93427237/204740023-a1607e51-2771-4838-8a50-e9f34f0d3407.png">
-### After removing outliers
-<img width="423" alt="image" src="https://user-images.githubusercontent.com/93427237/204740103-0128a899-a6df-49c8-9817-b6f3618c06ce.png">
+![image](https://user-images.githubusercontent.com/93427237/204740272-87bb84fc-567b-4e0b-9d26-c0d1fc4355a5.png)
 
 ## Correlation
 
@@ -130,9 +129,6 @@ plt.xlabel('Variables in the Data')
 plt.ylabel('Correlation Values')
 plt.show()
 ```
-### Heat Map
-![image](https://user-images.githubusercontent.com/93427237/204740272-87bb84fc-567b-4e0b-9d26-c0d1fc4355a5.png)
-### Correlation Bar Plot
 ![image](https://user-images.githubusercontent.com/93427237/204740363-7091f51b-d917-450c-8741-948add1d2767.png)
 
 ## EDA
@@ -262,11 +258,9 @@ g.map(plt.scatter,"Albumin", "Albumin_and_Globulin_Ratio",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Albumin_and_Globulin_Ratio", "Albumin", data=df, kind="reg")
 ```
-![image](https://user-images.githubusercontent.com/93427237/204741132-49bd143a-13ba-4c57-9d34-65ccec08e922.png)
+<img width="281" alt="image" src="https://user-images.githubusercontent.com/93427237/204744403-d23f5d28-f8fc-4cfe-af3a-3afb587fa5d4.png">
 
 There is linear relationship between Albumin_and_Globulin_Ratio and Albumin.
-
-### Conculsion
 
 From the above jointplots and scatterplots, we find direct relationship between the following features:
 1. Direct_Bilirubin & Total_Bilirubin
@@ -287,10 +281,8 @@ scaled_values=scaler.fit_transform(X)
 X.loc[:,:]=scaled_values
 ```
 #### Before Normalization
-![image](https://user-images.githubusercontent.com/93427237/204741149-26454367-3c8d-4cbe-a95d-0c219a12bb74.png)
 
 #### After Normalization
-![image](https://user-images.githubusercontent.com/93427237/204741285-3ab38cf3-867c-4233-afd2-c5b38da071e8.png)
 
 ### Splitting Data 
 ```py
@@ -312,7 +304,6 @@ sns.heatmap(confusion_matrix(y_test,log_predicted),annot=True,fmt="d")
 print('Classification Report: \n', classification_report(y_test,log_predicted))
 ```
 #### Accuray
-![Uploading image.png…]()
 #### Confusion Matrix
 
 #### Classification Matrix
