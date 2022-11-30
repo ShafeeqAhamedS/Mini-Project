@@ -305,8 +305,8 @@ print('Classification Report: \n', classification_report(y_test,log_predicted))
 #### Accuray
 ![acc](./acc.png)
 #### Confusion Matrix
-![conf](./conf.png)
-![conf](./conf1.png)
+![conf](./conf.png)</br>
+<img width="350" alt="image" src="./conf1.png">
 #### Classification Matrix
 ![class](./report.png)
 
