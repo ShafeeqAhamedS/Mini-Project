@@ -107,9 +107,10 @@ plt.show()
 ```
 ### Before removing outliers
 <img width="493" alt="image" src="https://user-images.githubusercontent.com/93427237/204740023-a1607e51-2771-4838-8a50-e9f34f0d3407.png">
-</br>
+
 ### After removing outliers
 <img width="493" alt="image" src="https://user-images.githubusercontent.com/93427237/204740103-0128a899-a6df-49c8-9817-b6f3618c06ce.png">
+
 ## Heatmap
 
 ```py
@@ -117,7 +118,7 @@ plt.figure(figsize=(10,6))
 sns.heatmap(df.corr(),cmap='magma',annot=True)
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740272-87bb84fc-567b-4e0b-9d26-c0d1fc4355a5.png)
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/93427237/204740272-87bb84fc-567b-4e0b-9d26-c0d1fc4355a5.png">
 
 ## Correlation
 
@@ -129,7 +130,7 @@ plt.xlabel('Variables in the Data')
 plt.ylabel('Correlation Values')
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740363-7091f51b-d917-450c-8741-948add1d2767.png)
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/93427237/204740363-7091f51b-d917-450c-8741-948add1d2767.png">
 
 ## EDA
 
@@ -141,7 +142,8 @@ plt.show()
 ```py
 df['Dataset'].value_counts()
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740649-1f115c06-812a-4d30-818c-c89a4372de55.png)
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/93427237/204748924-4f227205-5049-4b93-b98e-9f6efa9cb7ec.png">
+
 
 ```py
 asc = df["Age"].value_counts().sort_values(ascending=False).index
@@ -151,8 +153,7 @@ sns.countplot(data=df,x=df["Age"],hue = df["Dataset"],order=asc)
 plt.title('Count across Age',fontsize=16)
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740619-4ceef042-da76-4dd3-a367-eccee3cb451a.png)
-
+<img width="788" alt="image" src="https://user-images.githubusercontent.com/93427237/204749440-141c2ed5-d82f-4185-bea1-785e44295ec4.png">
 
 ```py
 plt.figure(figsize=(9,6))
@@ -162,8 +163,7 @@ plt.title('Percentage difference in the count between Male and Female')
 plt.legend(label,title='Category')
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740663-e7ce6c57-c8d9-4317-b19b-d06c0d9a8520.png)
-
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/93427237/204749181-1d45eda6-4912-4e8d-b091-80e346839365.png">
 
 ```py
 plt.figure(figsize=(9,6))
@@ -171,21 +171,20 @@ df['Dataset'].value_counts().plot(kind='pie',autopct='%.2f%%',colors=['deepskybl
 plt.title('Percentage difference in the count between Healthy & Diseased')
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740688-0b8072bb-a5b5-4737-a082-605060d79d2a.png)
-
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/93427237/204749274-ead7a190-56c4-4fba-9a57-212fd547781a.png">
 
 ```py
 sns.countplot(df['Dataset'],palette='Set2')
 plt.title('Count Across Disease')
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740709-62ffdcbc-7965-4bfd-ac59-74f3c1510fa6.png)
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/93427237/204740688-0b8072bb-a5b5-4737-a082-605060d79d2a.png">
 
 
 ```py
 sns.countplot(x="Dataset", hue="Gender", data=df)
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740752-d16ce280-73e5-4cd0-831d-7adcc42ed35c.png)
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/93427237/204749720-4049347a-965f-4329-a0f1-525fc95cc111.png">
 
 ```py
 plt.style.use("seaborn")
@@ -194,7 +193,7 @@ plt.margins(x=0)
 plt.title('Histogram for Age with Disease')
 sns.histplot(x = df["Age"], hue = df["Dataset"], palette="winter_r", kde=True)
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740800-7fa859e0-090b-4fa9-99ff-63438a1c9092.png)
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/93427237/204750148-e15bd2c0-e7c4-4c1b-b0f6-65554447b116.png">
 
 1. People starts to get the Liver Disease from the age of 25 to 50 
 2. There is chances because of the youngster consuming lot of junk food and Processed foods. 
@@ -210,7 +209,7 @@ g.map(plt.scatter,"Direct_Bilirubin", "Total_Bilirubin", edgecolor="w")
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Total_Bilirubin", "Direct_Bilirubin", data=df, kind="reg")
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740826-c3ae0cc5-edf9-48b2-95a5-c25b07414195.png)
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/93427237/204740800-7fa859e0-090b-4fa9-99ff-63438a1c9092.png">
 
 There seems to be direct relationship between Total_Bilirubin and Direct_Bilirubin.
 
@@ -222,7 +221,7 @@ g.map(plt.scatter,"Aspartate_Aminotransferase", "Alamine_Aminotransferase",  edg
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Aspartate_Aminotransferase", "Alamine_Aminotransferase", data=df, kind="reg")
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740882-6e6421d6-e13f-4972-b40e-39b9efb55daf.png)
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/93427237/204740826-c3ae0cc5-edf9-48b2-95a5-c25b07414195.png">
 
 There is linear relationship between Aspartate_Aminotransferase and Alamine_Aminotransferase and the gender.
 
@@ -234,7 +233,7 @@ g.map(plt.scatter,"Alkaline_Phosphotase", "Alamine_Aminotransferase",  edgecolor
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Alkaline_Phosphotase", "Alamine_Aminotransferase", data=df, kind="reg")
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740899-7454340d-1a65-4690-8341-d3c690ddd0a2.png)
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/93427237/204740858-450124f4-765a-4ebb-b3cf-d7ae3ecc8e72.png">
 
 No linear correlation between Alkaline_Phosphotase and Alamine_Aminotransferase
 
@@ -246,8 +245,7 @@ g.map(plt.scatter,"Total_Protiens", "Albumin",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Total_Protiens", "Albumin", data=df, kind="reg")
 ```
-![image](https://user-images.githubusercontent.com/93427237/204740858-450124f4-765a-4ebb-b3cf-d7ae3ecc8e72.png)
-
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/93427237/204740882-6e6421d6-e13f-4972-b40e-39b9efb55daf.png">
 There is linear relationship between Total_Protiens and Albumin and the gender.
 
 ### Albumin vs Albumin_and_Globulin_Ratio
@@ -258,7 +256,7 @@ g.map(plt.scatter,"Albumin", "Albumin_and_Globulin_Ratio",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 sns.jointplot("Albumin_and_Globulin_Ratio", "Albumin", data=df, kind="reg")
 ```
-<img width="281" alt="image" src="https://user-images.githubusercontent.com/93427237/204744403-d23f5d28-f8fc-4cfe-af3a-3afb587fa5d4.png">
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/93427237/204740899-7454340d-1a65-4690-8341-d3c690ddd0a2.png">
 
 There is linear relationship between Albumin_and_Globulin_Ratio and Albumin.
 
@@ -281,7 +279,7 @@ scaled_values=scaler.fit_transform(X)
 X.loc[:,:]=scaled_values
 ```
 #### Before Normalization
-![norm](./befornorm.png)
+![norm](./befrnorm.png)
 #### After Normalization
 ![norm](./aftrnorm.png)
 ### Splitting Data 
